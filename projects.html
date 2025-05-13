@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavya Sree A - Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-teal-600 to-teal-800 text-black p-4 sticky top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Kavya Sree A</h1>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:text-teal-200">Home</a></li>
+                <li><a href="projects.html" class="hover:text-teal-200 font-semibold">Projects</a></li>
+                <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
+                <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
+                <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold section-header">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Telegram Sentinel -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">Telegram Sentinel</h3>
+                    <p class="text-gray-600 mb-4">Developed a solution to monitor Telegram channels for suspicious activities, securing Top 15 in Tamil Nadu Police Hackathon 2024.</p>
+                    <p class="text-gray-600 mb-4"><strong>Technologies:</strong> Python, NLP, Telegram API</p>
+                    <a href="#" class="text-teal-600 hover:underline">View Project</a>
+                </div>
+                <!-- Project 2: Crimetryx -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">Crimetryx</h3>
+                    <p class="text-gray-600 mb-4">An AI-powered crime analytics system for Tamil Nadu Police, featuring NLP-based MO extraction, ML-driven suspect modeling, and GIS-based crime heatmaps.</p>
+                    <p class="text-gray-600 mb-4"><strong>Technologies:</strong> Python, NLP, Random Forest, LSTM, QGIS, Neo4j</p>
+                    <a href="#" class="text-teal-600 hover:underline">View Project</a>
+                </div>
+                <!-- Project 3: Google Ads Scam Detector -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">Google Ads Scam Detector</h3>
+                    <p class="text-gray-600 mb-4">A real-time system to detect scam Google Ads using Selenium for scraping and XGBoost for classification based on ad metadata.</p>
+                    <p class="text-gray-600 mb-4"><strong>Technologies:</strong> Python, Selenium, NLP, XGBoost, Isolation Forest</p>
+                    <a href="#" class="text-teal-600 hover:underline">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Kavya Sree A. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    </script>
+</body>
+</html>

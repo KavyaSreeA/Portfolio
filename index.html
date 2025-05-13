@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavya Sree A - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-teal-600 to-teal-800 text-black p-4 fixed w-full top-0 left-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Kavya Sree A</h1>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:text-teal-200 font-semibold">Home</a></li>
+                <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
+                <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
+                <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
+                <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-teal-700 to-teal-900 text-black py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-4 animate-fade-in">Hi, I'm Kavya Sree A</h2>
+            <p class="text-xl mb-6">Computer Science Student | Machine Learning Enthusiast | Hackathon Winner</p>
+            <a href="projects.html" class="bg-teal-500 text-white px-8 py-3 rounded-full hover:bg-teal-600 transition-transform transform hover:scale-105">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold section-header">About Me</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                I am an innovative Computer Science student at St Joseph's College of Engineering, Chennai, with a strong foundation in machine learning and software development. Proficient in Python, ML, and AI, I have demonstrated my ability to create impactful solutions through top positions in hackathons. Passionate about using technology for social good, I continuously seek opportunities to expand my skills and contribute to meaningful projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Kavya Sree A. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    </script>
+</body>
+</html>

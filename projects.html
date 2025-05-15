@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-dark">
     <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-teal-600 to-teal-800 text-black p-4 sticky top-0 z-10 shadow-lg">
+    <nav class="bg-gradient-to-r from-gray-900 to-black text-white p-4 fixed w-full top-0 left-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Kavya Sree A</h1>
             <ul class="flex space-x-6">
@@ -24,47 +24,78 @@
     </nav>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-gray-100 py-16">
+    <section id="projects" class="py-16 mt-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold section-header">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1: Telegram Sentinel -->
-                <div class="project-card bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">Telegram Sentinel</h3>
-                    <p class="text-gray-600 mb-4">Developed a solution to monitor Telegram channels for suspicious activities, securing Top 15 in Tamil Nadu Police Hackathon 2024.</p>
-                    <p class="text-gray-600 mb-4"><strong>Technologies:</strong> Python, NLP, Telegram API</p>
-                    <a href="#" class="text-teal-600 hover:underline">View Project</a>
+                <div class="project-card">
+                    <h3 class="card-title">Telegram Sentinel</h3>
+                    <p class="card-text">Developed a solution to monitor Telegram channels for suspicious activities, securing Top 15 in Tamil Nadu Police Hackathon 2024.</p>
+                    <p class="card-tech">Python, NLP, Telegram API</p>
+                    <a href="#" class="card-link">View Project →</a>
                 </div>
                 <!-- Project 2: Crimetryx -->
-                <div class="project-card bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">Crimetryx</h3>
-                    <p class="text-gray-600 mb-4">An AI-powered crime analytics system for Tamil Nadu Police, featuring NLP-based MO extraction, ML-driven suspect modeling, and GIS-based crime heatmaps.</p>
-                    <p class="text-gray-600 mb-4"><strong>Technologies:</strong> Python, NLP, Random Forest, LSTM, QGIS, Neo4j</p>
-                    <a href="#" class="text-teal-600 hover:underline">View Project</a>
+                <div class="project-card">
+                    <h3 class="card-title">Crimetryx</h3>
+                    <p class="card-text">An AI-powered crime analytics system for Tamil Nadu Police, featuring NLP-based MO extraction, ML-driven suspect modeling, and GIS-based crime heatmaps.</p>
+                    <p class="card-tech">Python, NLP, Random Forest, LSTM, QGIS, Neo4j</p>
+                    <a href="#" class="card-link">View Project →</a>
                 </div>
                 <!-- Project 3: Google Ads Scam Detector -->
-                <div class="project-card bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">Google Ads Scam Detector</h3>
-                    <p class="text-gray-600 mb-4">A real-time system to detect scam Google Ads using Selenium for scraping and XGBoost for classification based on ad metadata.</p>
-                    <p class="text-gray-600 mb-4"><strong>Technologies:</strong> Python, Selenium, NLP, XGBoost, Isolation Forest</p>
-                    <a href="#" class="text-teal-600 hover:underline">View Project</a>
+                <div class="project-card">
+                    <h3 class="card-title">Google Ads Scam Detector</h3>
+                    <p class="card-text">A real-time system to detect scam Google Ads using Selenium for scraping and XGBoost for classification based on ad metadata.</p>
+                    <p class="card-tech">Python, Selenium, NLP, XGBoost, Isolation Forest</p>
+                    <a href="#" class="card-link">View Project →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-teal-800 text-white py-6">
+    <footer class="text-gray-300 py-6">
         <div class="container mx-auto text-center">
-            <p>© 2025 Kavya Sree A. All rights reserved.</p>
+            <p> 2025 Kavya Sree A. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Interactive cursor trail effect
+        function createCursorTrail(e) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+            setTimeout(() => trail.remove(), 500);
+        }
+        
+        document.addEventListener('mousemove', createCursorTrail);
+
+        // Smooth scroll for navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.location.href = this.getAttribute('href');
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    window.location.href = href;
+                }
+            });
+        });
+
+        // Add scroll reveal animation
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.project-card').forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    element.classList.add('animate-fade-in');
+                }
             });
         });
     </script>

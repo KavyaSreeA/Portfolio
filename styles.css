@@ -1,32 +1,220 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color:rgb(61, 133, 181);
-    color: #2d3748;
+    background-color: #121212;
+    color: #f3f4f6;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease;
 }
 
 .section-header {
-    border-bottom: 2px solid #4b5563;
+    border-bottom: 2px solid #3d4852;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
+    color: #93c5fd;
+    text-shadow: 0 0 20px rgba(147, 197, 253, 0.3);
 }
 
 .project-card, .skill-card, .hackathon-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-card:hover, .skill-card:hover, .hackathon-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(147, 197, 253, 0.2);
+    background-color: #2d3748;
+    border-color: #60a5fa;
+}
+
+.project-card::before, .skill-card::before, .hackathon-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(147, 197, 253, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.project-card:hover::before, .skill-card:hover::before, .hackathon-card:hover::before {
+    left: 100%;
+}
+
+.card-title {
+    color: #93c5fd;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+.card-tech {
+    color: #60a5fa;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #93c5fd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    color: #60a5fa;
+    transform: translateX(5px);
+}
+
+/* Contact page styles */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    color: #93c5fd;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    background-color: #2d3748;
+    border-color: #60a5fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(147, 197, 253, 0.2);
+}
+
+.contact-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.75rem;
+    fill: currentColor;
+}
+
+.contact-form {
+    max-width: 32rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    color: #f3f4f6;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
 nav a:hover {
-    color:#5297B3;
+    color: #60a5fa;
+    text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
 }
 
 footer {
-    background-color: #2c7a7b;
+    background-color: #111827;
+    border-top: 1px solid #374151;
+}
+
+.bg-dark {
+    background-color: #1f2937;
+}
+
+.card {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.text-primary {
+    color: #93c5fd;
+}
+
+.button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.cursor-trail {
+    pointer-events: none;
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: #60a5fa;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 9999;
 }
 
 @keyframes fadeIn {

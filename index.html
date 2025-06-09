@@ -13,7 +13,26 @@
     <nav class="bg-gradient-to-r from-gray-900 to-black text-white p-4 fixed w-full top-0 left-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Kavya Sree A</h1>
-            <ul class="flex space-x-6">
+            <div class="flex items-center space-x-4">
+                <!-- Mobile menu button -->
+                <button class="mobile-nav-btn md:hidden" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <!-- Desktop menu -->
+                <ul class="nav-links hidden md:flex space-x-6">
+                    <li><a href="index.html" class="hover:text-teal-200 font-semibold">Home</a></li>
+                    <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
+                    <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
+                    <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
+                    <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-nav hidden md:hidden">
+            <ul class="flex flex-col space-y-4 p-4">
                 <li><a href="index.html" class="hover:text-teal-200 font-semibold">Home</a></li>
                 <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
                 <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
@@ -50,6 +69,12 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.classList.toggle('hidden');
+        }
+
         // Interactive cursor trail effect
         function createCursorTrail(e) {
             const trail = document.createElement('div');

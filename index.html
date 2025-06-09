@@ -30,15 +30,48 @@
                 </ul>
             </div>
         </div>
+        <!-- Mobile menu overlay -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+        
         <!-- Mobile menu -->
-        <div class="mobile-nav hidden md:hidden">
-            <ul class="flex flex-col space-y-4 p-4">
-                <li><a href="index.html" class="hover:text-teal-200 font-semibold">Home</a></li>
-                <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
-                <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
-                <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
-                <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
-            </ul>
+        <div id="mobileMenu" class="mobile-nav">
+            <div class="mobile-menu-header">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text">KS</span>
+                </div>
+                <button class="close-menu-btn" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link active">
+                    <span class="link-icon">🏠</span>
+                    <span class="link-text">Home</span>
+                </a>
+                <a href="projects.html" class="mobile-nav-link">
+                    <span class="link-icon">💻</span>
+                    <span class="link-text">Projects</span>
+                </a>
+                <a href="skills.html" class="mobile-nav-link">
+                    <span class="link-icon">🛠️</span>
+                    <span class="link-text">Skills</span>
+                </a>
+                <a href="hackathons.html" class="mobile-nav-link">
+                    <span class="link-icon">🏆</span>
+                    <span class="link-text">Hackathons</span>
+                </a>
+                <a href="contact.html" class="mobile-nav-link">
+                    <span class="link-icon">📞</span>
+                    <span class="link-text">Contact</span>
+                </a>
+            </nav>
         </div>
     </nav>
 

@@ -4,104 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kavya Sree A - Skills</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-dark">
-    <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-gray-900 to-black text-white p-4 fixed w-full top-0 left-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Kavya Sree A</h1>
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="hover:text-teal-200">Home</a></li>
-                <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
-                <li><a href="skills.html" class="hover:text-teal-200 font-semibold">Skills</a></li>
-                <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
-                <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
+<body>
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-brand">Kavya Sree A</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
+                <li><a href="hackathons.html">Hackathons</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <div class="container">
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 mt-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold section-header">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Skill 1 -->
-                <div class="skill-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="card-title text-white">Programming Languages</h3>
-                    <p class="card-text text-gray-400">Python, JavaScript, C, SQL</p>
+    <section class="section" id="skills" style="padding-top:9rem;" aria-label="Technical skills">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">TECHNICAL TOOLKIT</p>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+        </div>
+
+        <!-- Marquee bands -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="tech-pill">Python</span><span class="tech-pill">JavaScript</span><span class="tech-pill">C</span><span class="tech-pill">SQL</span><span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">PyTorch</span><span class="tech-pill">Scikit-Learn</span><span class="tech-pill">Selenium</span><span class="tech-pill">Git</span><span class="tech-pill">Docker</span>
+                <span class="tech-pill">Python</span><span class="tech-pill">JavaScript</span><span class="tech-pill">C</span><span class="tech-pill">SQL</span><span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">PyTorch</span><span class="tech-pill">Scikit-Learn</span><span class="tech-pill">Selenium</span><span class="tech-pill">Git</span><span class="tech-pill">Docker</span>
+            </div>
+        </div>
+        <div class="marquee rev" aria-hidden="true" style="margin-bottom:3.5rem;">
+            <div class="marquee-track">
+                <span class="tech-pill">NLP</span><span class="tech-pill">NLTK</span><span class="tech-pill">SpaCy</span><span class="tech-pill">LSTM</span><span class="tech-pill">Random Forest</span><span class="tech-pill">SVM</span><span class="tech-pill">XGBoost</span><span class="tech-pill">Matplotlib</span><span class="tech-pill">QGIS</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Neo4j</span><span class="tech-pill">Streamlit</span>
+                <span class="tech-pill">NLP</span><span class="tech-pill">NLTK</span><span class="tech-pill">SpaCy</span><span class="tech-pill">LSTM</span><span class="tech-pill">Random Forest</span><span class="tech-pill">SVM</span><span class="tech-pill">XGBoost</span><span class="tech-pill">Matplotlib</span><span class="tech-pill">QGIS</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">Neo4j</span><span class="tech-pill">Streamlit</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card-grid cols-2">
+                <div class="skill-card glass reveal">
+                    <h3>Programming Languages</h3>
+                    <div class="tech-row">
+                        <span class="tech-pill">Python</span><span class="tech-pill">JavaScript</span><span class="tech-pill">C</span><span class="tech-pill">SQL</span>
+                    </div>
                 </div>
-                <!-- Skill 2 -->
-                <div class="skill-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="card-title text-white">Frameworks & Tools</h3>
-                    <p class="card-text text-gray-400">React, Node.js, TensorFlow, PyTorch, Scikit-Learn, Selenium, Git, Docker, Streamlit</p>
+                <div class="skill-card glass reveal">
+                    <h3>Frameworks &amp; Tools</h3>
+                    <div class="tech-row">
+                        <span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">TensorFlow</span><span class="tech-pill">PyTorch</span><span class="tech-pill">Scikit-Learn</span><span class="tech-pill">Selenium</span><span class="tech-pill">Git</span><span class="tech-pill">Docker</span><span class="tech-pill">Streamlit</span>
+                    </div>
                 </div>
-                <!-- Skill 3 -->
-                <div class="skill-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="card-title text-white">Data Science & ML</h3>
-                    <p class="card-text text-gray-400">NLP, NLTK, SpaCy, LSTM, Random Forest, SVM, XGBoost, Matplotlib, QGIS</p>
+                <div class="skill-card glass reveal">
+                    <h3>Data Science &amp; ML</h3>
+                    <div class="tech-row">
+                        <span class="tech-pill">NLP</span><span class="tech-pill">NLTK</span><span class="tech-pill">SpaCy</span><span class="tech-pill">LSTM</span><span class="tech-pill">Random Forest</span><span class="tech-pill">SVM</span><span class="tech-pill">XGBoost</span><span class="tech-pill">Matplotlib</span><span class="tech-pill">QGIS</span>
+                    </div>
                 </div>
-                <!-- Skill 4 -->
-                <div class="skill-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="card-title text-white">Databases & Cloud</h3>
-                    <p class="card-text text-gray-400">PostgreSQL, Neo4j</p>
+                <div class="skill-card glass reveal">
+                    <h3>Databases &amp; Cloud</h3>
+                    <div class="tech-row">
+                        <span class="tech-pill">PostgreSQL</span><span class="tech-pill">Neo4j</span>
+                    </div>
                 </div>
-                <!-- Skill 5 -->
-                <div class="skill-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all">
-                    <h3 class="card-title text-white">Web Development</h3>
-                    <p class="card-text text-gray-400">HTML, CSS, Tailwind</p>
+                <div class="skill-card glass reveal">
+                    <h3>Web Development</h3>
+                    <div class="tech-row">
+                        <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Tailwind</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-gray-300 py-6">
-        <div class="container mx-auto text-center">
-            <p> 2025 Kavya Sree A. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Kavya Sree A. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="hackathons.html">Hackathons</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Interactive cursor trail effect
-        function createCursorTrail(e) {
-            const trail = document.createElement('div');
-            trail.className = 'cursor-trail';
-            trail.style.left = e.pageX + 'px';
-            trail.style.top = e.pageY + 'px';
-            document.body.appendChild(trail);
-            setTimeout(() => trail.remove(), 500);
-        }
-        
-        document.addEventListener('mousemove', createCursorTrail);
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                } else {
-                    window.location.href = href;
-                }
-            });
-        });
-
-        // Add scroll reveal animation
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.skill-card').forEach(element => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    element.classList.add('animate-fade-in');
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

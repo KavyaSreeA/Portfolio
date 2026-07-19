@@ -1,0 +1,2 @@
+# Local MCP server config (contains no secrets; key is an env reference)
+.mcp.json

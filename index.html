@@ -4,409 +4,251 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kavya Sree A - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Kavya Sree A — Computer Science student specializing in Machine Learning and Full-Stack Development. Hackathon winner and builder of real-world ML solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-dark">
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader" aria-hidden="true">
+        <span class="preloader-name">Kavya Sree A</span>
+        <span class="preloader-count">0</span>
+        <span class="preloader-bar"></span>
+    </div>
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
     <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-gray-900 to-black text-white p-4 fixed w-full top-0 left-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Kavya Sree A</h1>
-            <div class="flex items-center space-x-4">
-                <!-- Mobile menu button -->
-                <button class="mobile-nav-btn md:hidden" onclick="toggleMobileMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-                <!-- Desktop menu -->
-                <ul class="nav-links hidden md:flex space-x-6">
-                    <li><a href="index.html" class="hover:text-teal-200 font-semibold">Home</a></li>
-                    <li><a href="#resume" class="hover:text-teal-200">Resume</a></li>
-                    <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
-                    <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
-                    <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
-                    <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-brand">Kavya Sree A</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="hackathons.html">Hackathons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <div class="container">
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div class="mobile-nav hidden md:hidden">
-            <ul class="flex flex-col space-y-4 p-4">
-                <li><a href="index.html" class="hover:text-teal-200 font-semibold">Home</a></li>
-                <li><a href="#resume" class="hover:text-teal-200">Resume</a></li>
-                <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
-                <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
-                <li><a href="hackathons.html" class="hover:text-teal-200">Hackathons</a></li>
-                <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
-            </ul>
-        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section bg-gradient-to-b from-gray-900 to-black text-white py-32">
-        <div class="container mx-auto text-center px-4">
-            <p class="text-sm uppercase tracking-widest text-blue-300 mb-4">YOUR COMPLETE TECH PARTNER</p>
-            <h2 class="text-6xl font-bold mb-6 animate-fade-in leading-tight">Build your success<br>with innovative solutions</h2>
-            <p class="text-xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <div class="container">
+            <p class="eyebrow">YOUR COMPLETE TECH PARTNER</p>
+            <h1 class="hero-title">Build your success with <span class="gradient-text">innovative solutions</span></h1>
+            <p class="hero-lead">
                 I am an innovative Computer Science student specializing in Machine Learning and Full-Stack Development. From winning hackathons to delivering real-world solutions, I bring creativity, technical excellence, and dedication to every project.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="projects.html" class="hero-button primary">Get Started</a>
-                <a href="#portfolio" class="hero-button secondary">Explore Projects</a>
+            <div class="hero-cta">
+                <a href="projects.html" class="btn btn-primary">Get Started</a>
+                <a href="#portfolio" class="btn btn-ghost">Explore Projects</a>
+            </div>
+        </div>
+        <div class="scroll-hint" aria-hidden="true">Scroll<span></span></div>
+    </header>
+
+    <!-- Impact -->
+    <section class="section" aria-label="Impact by the numbers">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">PROVEN RESULTS</p>
+                <h2 class="section-title">Impact by the Numbers</h2>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-card reveal"><div class="stat-number" data-target="15">0</div><div class="stat-label">Projects Completed</div></div>
+                <div class="stat-card reveal"><div class="stat-number" data-target="5">0</div><div class="stat-label">Hackathons Won</div></div>
+                <div class="stat-card reveal"><div class="stat-number" data-target="100">0</div><div class="stat-label">% Success Rate</div></div>
+                <div class="stat-card reveal"><div class="stat-number" data-target="10">0</div><div class="stat-label">Technologies Mastered</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section class="impact-section py-16 bg-gradient-to-b from-black to-gray-900">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm uppercase tracking-widest text-blue-300 mb-2">PROVEN RESULTS</p>
-            <h2 class="text-4xl font-bold mb-12">Impact by the Numbers</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="stat-card">
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="5">0</div>
-                    <div class="stat-label">Hackathons Won</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="100">0</div>
-                    <div class="stat-label">% Success Rate</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="10">0</div>
-                    <div class="stat-label">Technologies Mastered</div>
-                </div>
+    <!-- Why Choose Me -->
+    <section class="section" aria-label="Why choose me">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">EVERYTHING YOU NEED</p>
+                <h2 class="section-title">Why Choose Me</h2>
+                <p class="section-sub reveal">I combine innovation, expertise, and dedication to deliver exceptional results for every project</p>
+            </div>
+            <div class="card-grid cols-3">
+                <div class="feature-card glass reveal"><div class="feature-num">01</div><h3 class="feature-title">Fast &amp; Efficient</h3><p class="feature-text">Lightning-fast solutions that scale with your needs. I prioritize performance and reliability in everything I build.</p></div>
+                <div class="feature-card glass reveal"><div class="feature-num">02</div><h3 class="feature-title">Innovative</h3><p class="feature-text">Cutting-edge technology and creative approaches to solve complex problems in unique ways.</p></div>
+                <div class="feature-card glass reveal"><div class="feature-num">03</div><h3 class="feature-title">Result Focused</h3><p class="feature-text">Your success is my priority. I work closely with you to understand and meet your specific needs.</p></div>
+                <div class="feature-card glass reveal"><div class="feature-num">04</div><h3 class="feature-title">Secure</h3><p class="feature-text">Enterprise-grade security measures to protect your data and ensure peace of mind.</p></div>
+                <div class="feature-card glass reveal"><div class="feature-num">05</div><h3 class="feature-title">Machine Learning</h3><p class="feature-text">Advanced ML and AI solutions that bring intelligence to your applications and processes.</p></div>
+                <div class="feature-card glass reveal"><div class="feature-num">06</div><h3 class="feature-title">Growth Oriented</h3><p class="feature-text">Solutions designed to grow with your business, from startup to enterprise scale.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Me Section -->
-    <section class="why-choose-section py-16">
-        <div class="container mx-auto px-4">
-            <p class="text-sm uppercase tracking-widest text-blue-300 mb-2 text-center">EVERYTHING YOU NEED</p>
-            <h2 class="text-4xl font-bold mb-4 text-center">Why Choose Me</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">I combine innovation, expertise, and dedication to deliver exceptional results for every project</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card">
-                    <div class="feature-number">01</div>
-                    <h3 class="feature-title">Fast & Efficient</h3>
-                    <p class="feature-text">Lightning-fast solutions that scale with your needs. I prioritize performance and reliability in everything I build.</p>
+    <!-- Hackathon Carousel -->
+    <section class="section" id="portfolio" aria-label="Hackathon excellence">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">ACHIEVEMENTS &amp; RECOGNITION</p>
+                <h2 class="section-title">Hackathon Excellence</h2>
+            </div>
+
+            <div class="carousel reveal">
+                <div class="carousel-viewport" id="carousel">
+                    <div class="slide active">
+                        <div class="slide-media">
+                            <span class="badge winner">🏆 Winner</span>
+                            <img src="assets/sih_2025_winner.jpeg" alt="Smart India Hackathon 2025" loading="lazy">
+                        </div>
+                        <div class="slide-body">
+                            <h3 class="slide-title">Smart India Hackathon 2025</h3>
+                            <p class="slide-desc">National Winner - Developed innovative solutions addressing real-world challenges at India's largest hackathon.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-media">
+                            <span class="badge runner-up">🥈 1st Runner Up</span>
+                            <img src="assets/codher 2025.jpeg" alt="Codher 2025" loading="lazy">
+                        </div>
+                        <div class="slide-body">
+                            <h3 class="slide-title">Codher 2025</h3>
+                            <p class="slide-desc">Secured 1st Runner Up position among 750+ teams with innovative tech solutions.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-media">
+                            <span class="badge finalist">⭐ Finalist</span>
+                            <img src="assets/Mumbai Hacks.png" alt="Mumbai Hacks" loading="lazy">
+                        </div>
+                        <div class="slide-body">
+                            <h3 class="slide-title">Mumbai Hacks</h3>
+                            <p class="slide-desc">Selected as finalist in Mumbai's premier hackathon for innovative problem-solving and technical excellence.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-media">
+                            <span class="badge top-15">🎯 Top 15</span>
+                            <img src="assets/TN-POLICE-HACKATHON.jpg" alt="Tamil Nadu Police Hackathon 2024" loading="lazy">
+                        </div>
+                        <div class="slide-body">
+                            <h3 class="slide-title">Tamil Nadu Police Hackathon 2024</h3>
+                            <p class="slide-desc">Secured Top 15 position with Telegram Sentinel - a sophisticated monitoring solution for detecting suspicious activities.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-number">02</div>
-                    <h3 class="feature-title">Innovative</h3>
-                    <p class="feature-text">Cutting-edge technology and creative approaches to solve complex problems in unique ways.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">03</div>
-                    <h3 class="feature-title">Result Focused</h3>
-                    <p class="feature-text">Your success is my priority. I work closely with you to understand and meet your specific needs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">04</div>
-                    <h3 class="feature-title">Secure</h3>
-                    <p class="feature-text">Enterprise-grade security measures to protect your data and ensure peace of mind.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">05</div>
-                    <h3 class="feature-title">Machine Learning</h3>
-                    <p class="feature-text">Advanced ML and AI solutions that bring intelligence to your applications and processes.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">06</div>
-                    <h3 class="feature-title">Growth Oriented</h3>
-                    <p class="feature-text">Solutions designed to grow with your business, from startup to enterprise scale.</p>
-                </div>
+
+                <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous achievement">←</button>
+                <button class="carousel-arrow next" id="carouselNext" aria-label="Next achievement">→</button>
+
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+
+            <div style="text-align:center; margin-top:3rem;" class="reveal">
+                <a href="hackathons.html" class="btn btn-primary">View All Hackathons</a>
             </div>
         </div>
     </section>
 
-    <!-- Hackathon Achievements Section -->
-    <!-- Hackathon Carousel Section -->
-    <section id="portfolio" class="slider-section py-16 bg-gradient-to-b from-gray-900 to-black">
-        <div class="container mx-auto px-4">
-            <p class="text-sm uppercase tracking-widest text-blue-300 mb-2 text-center">ACHIEVEMENTS & RECOGNITION</p>
-            <h2 class="text-4xl font-bold mb-12 text-center">Hackathon Excellence</h2>
-            
-            <div class="slider-container">
-                <div class="slider-wrapper">
-                    <!-- Slide 1: SIH 2025 Winner -->
-                    <div class="slider-slide active">
-                        <div class="slide-content-box">
-                            <div class="slide-badge winner">🏆 WINNER</div>
-                            <img src="assets\sih_2025_winner.jpeg" alt="Smart India Hackathon 2025" class="slide-image">
-                        </div>
-                        <h3 class="slide-title">Smart India Hackathon 2025</h3>
-                        <p class="slide-description">National Winner - Developed innovative solutions addressing real-world challenges at India's largest hackathon.</p>
-                    </div>
-
-                    <!-- Slide 2: Codher 2025 -->
-                    <div class="slider-slide">
-                        <div class="slide-content-box">
-                            <div class="slide-badge runner-up">🥈 1ST RUNNER UP</div>
-                            <img src="assets/codher 2025.jpeg" alt="Codher 2025" class="slide-image">
-                        </div>
-                        <h3 class="slide-title">Codher 2025</h3>
-                        <p class="slide-description">Secured 1st Runner Up position among 750+ teams with innovative tech solutions.</p>
-                    </div>
-
-                    <!-- Slide 3: Mumbai Hacks -->
-                    <div class="slider-slide">
-                        <div class="slide-content-box">
-                            <div class="slide-badge finalist">⭐ FINALIST</div>
-                            <img src="assets/Mumbai Hacks.png" alt="Mumbai Hacks" class="slide-image">
-                        </div>
-                        <h3 class="slide-title">Mumbai Hacks</h3>
-                        <p class="slide-description">Selected as finalist in Mumbai's premier hackathon for innovative problem-solving and technical excellence.</p>
-                    </div>
-
-                    <!-- Slide 4: TN Police Hackathon -->
-                    <div class="slider-slide">
-                        <div class="slide-content-box">
-                            <div class="slide-badge top-15">🎯 TOP 15</div>
-                            <img src="assets/TN-POLICE-HACKATHON.jpg" alt="Tamil Nadu Police Hackathon 2024" class="slide-image">
-                        </div>
-                        <h3 class="slide-title">Tamil Nadu Police Hackathon 2024</h3>
-                        <p class="slide-description">Secured Top 15 position with Telegram Sentinel - a sophisticated monitoring solution for detecting suspicious activities.</p>
-                    </div>
-                </div>
-
-                <!-- Navigation Arrows -->
-                <button class="slider-arrow prev" onclick="changeSlide(-1)">←</button>
-                <button class="slider-arrow next" onclick="changeSlide(1)">→</button>
-
-                <!-- Navigation Dots -->
-                <div class="slider-dots">
-                    <span class="dot active" onclick="goToSlide(0)"></span>
-                    <span class="dot" onclick="goToSlide(1)"></span>
-                    <span class="dot" onclick="goToSlide(2)"></span>
-                    <span class="dot" onclick="goToSlide(3)"></span>
-                </div>
+    <!-- Testimonials -->
+    <section class="section" aria-label="What people say">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">CLIENT REVIEWS</p>
+                <h2 class="section-title">What People Say</h2>
             </div>
-
-            <div class="text-center mt-12">
-                <a href="hackathons.html" class="hero-button primary">View All Hackathons</a>
+            <div class="card-grid cols-3">
+                <figure class="testimonial-card glass reveal">
+                    <div class="stars" aria-hidden="true">★★★★★</div>
+                    <blockquote class="quote">"Kavya's work on our website was outstanding. Her attention to detail and innovative approach helped us achieve a modern, responsive design that perfectly reflects our brand."</blockquote>
+                    <figcaption class="person">
+                        <div class="avatar">DM</div>
+                        <div><div class="person-name">S.Aadhi Narayanan</div><div class="person-title">Founder - Maxwin Multitec Solutions</div></div>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial-card glass reveal">
+                    <div class="stars" aria-hidden="true">★★★★★</div>
+                    <blockquote class="quote">"Exceptional talent in machine learning and AI. Kavya delivered a complex crime analytics system that exceeded our expectations in every way."</blockquote>
+                    <figcaption class="person">
+                        <div class="avatar">RS</div>
+                        <div><div class="person-name">Raghavan</div><div class="person-title">CEO - HARIHARAN ENTREPRISES </div></div>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial-card glass reveal">
+                    <div class="stars" aria-hidden="true">★★★★★</div>
+                    <blockquote class="quote">"Working with Kavya was a pleasure. Her dedication to the project and attention to detail resulted in a robust and scalable solution."</blockquote>
+                    <figcaption class="person">
+                        <div class="avatar">AP</div>
+                        <div><div class="person-name">Arun Prasad</div><div class="person-title">Project Coordinator</div></div>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section py-16">
-        <div class="container mx-auto px-4">
-            <p class="text-sm uppercase tracking-widest text-blue-300 mb-2 text-center">CLIENT REVIEWS</p>
-            <h2 class="text-4xl font-bold mb-12 text-center">What People Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"Kavya's work on our website was outstanding. Her attention to detail and innovative approach helped us achieve a modern, responsive design that perfectly reflects our brand."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">DM</div>
-                        <div>
-                            <div class="author-name">S.Aadhi Narayanan</div>
-                            <div class="author-title">Founder - Maxwin Multitec Solutions</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"Exceptional talent in machine learning and AI. Kavya delivered a complex crime analytics system that exceeded our expectations in every way."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RS</div>
-                        <div>
-                            <div class="author-name">Raghavan</div>
-                            <div class="author-title">CEO - HARIHARAN ENTREPRISES </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"Working with Kavya was a pleasure. Her dedication to the project and attention to detail resulted in a robust and scalable solution."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AP</div>
-                        <div>
-                            <div class="author-name">Arun Prasad</div>
-                            <div class="author-title">Project Coordinator</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- About -->
+    <section class="section" id="about" aria-label="About me">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="prose-card glass reveal">
+                <p>
+                    I am an innovative Computer Science student at St Joseph's College of Engineering, Chennai, with a strong foundation in machine learning and software development. Proficient in Python, ML, and AI, I have demonstrated my ability to create impactful solutions through top positions in hackathons. Passionate about using technology for social good, I continuously seek opportunities to expand my skills and contribute to meaningful projects.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-gradient-to-b from-gray-900 to-black">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold section-header">About Me</h2>
-            <p class="text-lg text-gray-300 leading-relaxed max-w-4xl mx-auto">
-                I am an innovative Computer Science student at St Joseph's College of Engineering, Chennai, with a strong foundation in machine learning and software development. Proficient in Python, ML, and AI, I have demonstrated my ability to create impactful solutions through top positions in hackathons. Passionate about using technology for social good, I continuously seek opportunities to expand my skills and contribute to meaningful projects.
-            </p>
-        </div>
-    </section>
-
-    <!-- Resume / CTA Section -->
-    <section id="resume" class="py-20 bg-gradient-to-b from-black to-gray-900">
-        <div class="container mx-auto px-4">
-            <p class="text-sm uppercase tracking-widest text-blue-300 mb-2 text-center">LET'S GET STARTED</p>
-            <h2 class="text-4xl font-bold mb-4 text-center">Ready to Get Started?</h2>
-            <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
-                Discover how my innovative solutions can transform your project. Let's create something amazing together.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <a href="contact.html" class="hero-button primary">Contact Me Today</a>
-                <a href="assets/A_KAVYA_SREE_RESUME%20(1).pdf" download="Kavya Sree A Resume.pdf" class="hero-button secondary">Download CV</a>
+    <!-- Resume / CTA -->
+    <section class="section" id="resume" aria-label="Get started">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">LET'S GET STARTED</p>
+                <h2 class="section-title">Ready to Get Started?</h2>
+                <p class="section-sub reveal">Discover how my innovative solutions can transform your project. Let's create something amazing together.</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;" class="reveal">
+                <a href="contact.html" class="btn btn-primary">Contact Me Today</a>
+                <a href="assets/A_KAVYA_SREE_RESUME%20(1).pdf" download="Kavya Sree A Resume.pdf" class="btn btn-ghost">Download CV</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-gray-300 py-8 border-t border-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-4">
-                <p class="mb-2">© 2025 Kavya Sree A. All rights reserved. | Designed with care</p>
-            </div>
-            <div class="flex justify-center space-x-6">
-                <a href="index.html" class="text-gray-400 hover:text-blue-400 transition">Home</a>
-                <a href="projects.html" class="text-gray-400 hover:text-blue-400 transition">Projects</a>
-                <a href="skills.html" class="text-gray-400 hover:text-blue-400 transition">Skills</a>
-                <a href="hackathons.html" class="text-gray-400 hover:text-blue-400 transition">Hackathons</a>
-                <a href="contact.html" class="text-gray-400 hover:text-blue-400 transition">Contact</a>
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Kavya Sree A. All rights reserved. | Designed with care</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="hackathons.html">Hackathons</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.querySelector('.mobile-nav');
-            mobileNav.classList.toggle('hidden');
-        }
-
-        // Slider functionality
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.slider-slide');
-        const dots = document.querySelectorAll('.dot');
-        const totalSlides = slides.length;
-
-        function updateSlider() {
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active');
-                dots[index].classList.remove('active');
-            });
-            slides[currentSlideIndex].classList.add('active');
-            dots[currentSlideIndex].classList.add('active');
-        }
-
-        function changeSlide(direction) {
-            currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
-            updateSlider();
-        }
-
-        function goToSlide(index) {
-            currentSlideIndex = index;
-            updateSlider();
-        }
-
-        // Auto-advance slider
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-
-        // Counter animation
-        function animateCounter(element) {
-            const target = parseInt(element.dataset.target);
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.floor(current) + '+';
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target + '+';
-                }
-            };
-
-            updateCounter();
-        }
-
-        // Intersection Observer for counter animation
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                    entry.target.classList.add('counted');
-                    animateCounter(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all stat numbers
-        document.querySelectorAll('.stat-number').forEach(counter => {
-            counterObserver.observe(counter);
-        });
-
-        // Interactive cursor trail effect (lighter for better performance)
-        let lastTrailTime = 0;
-        function createCursorTrail(e) {
-            const now = Date.now();
-            if (now - lastTrailTime > 50) { // Throttle to every 50ms
-                const trail = document.createElement('div');
-                trail.className = 'cursor-trail';
-                trail.style.left = e.pageX + 'px';
-                trail.style.top = e.pageY + 'px';
-                document.body.appendChild(trail);
-                setTimeout(() => trail.remove(), 500);
-                lastTrailTime = now;
-            }
-        }
-        
-        document.addEventListener('mousemove', createCursorTrail);
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                        // Close mobile menu if open
-                        const mobileNav = document.querySelector('.mobile-nav');
-                        if (mobileNav && !mobileNav.classList.contains('hidden')) {
-                            mobileNav.classList.add('hidden');
-                        }
-                    }
-                }
-            });
-        });
-
-        // Add scroll reveal animation
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Observe all cards and sections
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.card, .feature-card, .testimonial-card, .stat-card').forEach(element => {
-                revealObserver.observe(element);
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

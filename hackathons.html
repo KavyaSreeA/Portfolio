@@ -4,134 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kavya Sree A - Hackathons</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-dark">
-    <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-gray-900 to-black text-white p-4 fixed w-full top-0 left-0 z-50 shadow-lg backdrop-blur-sm bg-opacity-90">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Kavya Sree A</h1>
-            <ul class="flex space-x-6">
-                <li><a href="index.html" class="hover:text-teal-200">Home</a></li>
-                <li><a href="projects.html" class="hover:text-teal-200">Projects</a></li>
-                <li><a href="skills.html" class="hover:text-teal-200">Skills</a></li>
-                <li><a href="hackathons.html" class="hover:text-teal-200 font-semibold">Hackathons</a></li>
-                <li><a href="contact.html" class="hover:text-teal-200">Contact</a></li>
+<body>
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-brand">Kavya Sree A</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="hackathons.html" class="active">Hackathons</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <div class="container">
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Hackathons Section -->
-    <section id="hackathons" class="py-16 mt-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold section-header">Hackathon Achievements</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Hackathon 1: SIH 2025 -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge winner">🏆 WINNER</div>
-                    <h3 class="hackathon-title">Smart India Hackathon 2025</h3>
-                    <p class="hackathon-description">National Winner - Developed innovative solutions addressing real-world challenges at India's largest hackathon.</p>
+    <section class="section" id="hackathons" style="padding-top:9rem;" aria-label="Hackathon achievements">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">ACHIEVEMENTS &amp; RECOGNITION</p>
+                <h2 class="section-title">Hackathon Achievements</h2>
+            </div>
+            <div class="card-grid cols-2">
+                <div class="feature-card glass reveal">
+                    <span class="badge winner">🏆 Winner</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">Smart India Hackathon 2025</h3>
+                    <p class="feature-text">National Winner - Developed innovative solutions addressing real-world challenges at India's largest hackathon.</p>
                 </div>
-
-                <!-- Hackathon 2: CodHer 2025 -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge runner-up">🥈 1ST RUNNER-UP</div>
-                    <h3 class="hackathon-title">CodHer 2025</h3>
-                    <p class="hackathon-description">First Runner-Up in national-level women's hackathon for an innovative solution. Won ₹12,000</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge runner-up">🥈 1st Runner-Up</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">CodHer 2025</h3>
+                    <p class="feature-text">First Runner-Up in national-level women's hackathon for an innovative solution. Won ₹12,000</p>
                 </div>
-
-                <!-- Hackathon 3: Mumbai Hacks -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge finalist">⭐ FINALIST</div>
-                    <h3 class="hackathon-title">Mumbai Hacks</h3>
-                    <p class="hackathon-description">Selected as finalist in Mumbai's premier hackathon for innovative problem-solving and technical excellence.</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge finalist">⭐ Finalist</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">Mumbai Hacks</h3>
+                    <p class="feature-text">Selected as finalist in Mumbai's premier hackathon for innovative problem-solving and technical excellence.</p>
                 </div>
-
-                <!-- Hackathon 4: TN Police -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge top-15">🎯 TOP 15</div>
-                    <h3 class="hackathon-title">Tamil Nadu Police Hackathon 2024</h3>
-                    <p class="hackathon-description">Top 15, received ₹5000 cash award from DGP for developing Telegram Sentinel, a tool to monitor suspicious Telegram activities.</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge top-15">🎯 Top 15</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">Tamil Nadu Police Hackathon 2024</h3>
+                    <p class="feature-text">Top 15, received ₹5000 cash award from DGP for developing Telegram Sentinel, a tool to monitor suspicious Telegram activities.</p>
                 </div>
-
-                <!-- Hackathon 5: Operation Trinetra -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge achievement">🌟 BEST TEAM</div>
-                    <h3 class="hackathon-title">Operation Trinetra 2025 by CEG</h3>
-                    <p class="hackathon-description">Best All women team among 150+ teams across India.</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge achievement">🌟 Best Team</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">Operation Trinetra 2025 by CEG</h3>
+                    <p class="feature-text">Best All women team among 150+ teams across India.</p>
                 </div>
-
-                <!-- Hackathon 6: Ideathon -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge runner-up">🥈 1ST RUNNER-UP</div>
-                    <h3 class="hackathon-title">Ideathon by ISTE & Anna University</h3>
-                    <p class="hackathon-description">First Runner-Up for an idea addressing real world challenges.</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge runner-up">🥈 1st Runner-Up</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">Ideathon by ISTE &amp; Anna University</h3>
+                    <p class="feature-text">First Runner-Up for an idea addressing real world challenges.</p>
                 </div>
-
-                <!-- Hackathon 7: VIT Vertex -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge finalist">⭐ FINALIST</div>
-                    <h3 class="hackathon-title">VIT Vertex Innovation Hackathon</h3>
-                    <p class="hackathon-description">Finalist for a creative tech solution.</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge finalist">⭐ Finalist</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">VIT Vertex Innovation Hackathon</h3>
+                    <p class="feature-text">Finalist for a creative tech solution.</p>
                 </div>
-
-                <!-- Hackathon 8: SRM -->
-                <div class="hackathon-card">
-                    <div class="hackathon-badge third-place">🥉 3RD PLACE</div>
-                    <h3 class="hackathon-title">Idea Presentation at SRM University</h3>
-                    <p class="hackathon-description">Secured 3rd place in an idea presentation competition.</p>
+                <div class="feature-card glass reveal">
+                    <span class="badge third-place">🥉 3rd Place</span>
+                    <h3 class="feature-title" style="margin-top:1.1rem;">Idea Presentation at SRM University</h3>
+                    <p class="feature-text">Secured 3rd place in an idea presentation competition.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-gray-300 py-6">
-        <div class="container mx-auto text-center">
-            <p> 2025 Kavya Sree A. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Kavya Sree A. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="hackathons.html">Hackathons</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Interactive cursor trail effect
-        function createCursorTrail(e) {
-            const trail = document.createElement('div');
-            trail.className = 'cursor-trail';
-            trail.style.left = e.pageX + 'px';
-            trail.style.top = e.pageY + 'px';
-            document.body.appendChild(trail);
-            setTimeout(() => trail.remove(), 500);
-        }
-        
-        document.addEventListener('mousemove', createCursorTrail);
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                } else {
-                    window.location.href = href;
-                }
-            });
-        });
-
-        // Add scroll reveal animation
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.hackathon-card').forEach(element => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    element.classList.add('animate-fade-in');
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

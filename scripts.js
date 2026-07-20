@@ -71,25 +71,62 @@
         }
         if (!preloader || reduceMotion || !hasGSAP) { finish(); return; }
         if (lenis) lenis.stop();
-        var count = preloader.querySelector('.preloader-count');
-        var bar = preloader.querySelector('.preloader-bar');
-        var name = preloader.querySelector('.preloader-name');
-        var counter = { v: 0 };
-        gsap.timeline()
-          .to(name, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0)
-          .to(counter, {
-              v: 100, duration: 1.5, ease: 'power2.inOut',
-              onUpdate: function () {
-                  var n = Math.round(counter.v);
-                  if (count) count.textContent = n;
-                  if (bar) bar.style.width = n + '%';
-              }
-          }, 0)
-          .to(preloader, { yPercent: -100, duration: 0.9, ease: 'expo.inOut' }, '+=0.15')
-          .add(finish, '-=0.2');
+
+        var CX = 400, CY = 300, R = 170;
+        var bubble = preloader.querySelector('#bubble');
+        var cross = preloader.querySelector('#crossHair');
+        var introText = preloader.querySelector('#introText');
+        var nameEl = preloader.querySelector('#introName');
+        var roles = preloader.querySelectorAll('.introRole');
+        var popWrap = preloader.querySelector('#popLines');
+
+        // Build the radial "pop" burst lines
+        var SPOKES = 10, SPOKE_LEN = 42, lines = [];
+        for (var i = 0; i < SPOKES; i++) {
+            var a = (i / SPOKES) * Math.PI * 2 - Math.PI / 2;
+            var ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            ln.setAttribute('x1', CX + Math.cos(a) * (R + 14));
+            ln.setAttribute('y1', CY + Math.sin(a) * (R + 14));
+            ln.setAttribute('x2', CX + Math.cos(a) * (R + 14 + SPOKE_LEN));
+            ln.setAttribute('y2', CY + Math.sin(a) * (R + 14 + SPOKE_LEN));
+            ln.style.strokeDasharray = SPOKE_LEN;
+            ln.style.strokeDashoffset = SPOKE_LEN;
+            popWrap.appendChild(ln);
+            lines.push(ln);
+        }
+
+        // Initial states
+        var CIRC = 2 * Math.PI * R;
+        gsap.set(bubble, { strokeDasharray: CIRC, strokeDashoffset: CIRC, svgOrigin: CX + ' ' + CY });
+        gsap.set(cross, { opacity: 0, svgOrigin: CX + ' ' + CY });
+        gsap.set(nameEl, { y: 200 });
+        gsap.set(roles, { y: 200 });
+
+        gsap.timeline({ onComplete: finish })
+            // 1 — crosshair scans into the centre
+            .fromTo(cross, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' })
+            // 2 — circle draws itself
+            .to(bubble, { strokeDashoffset: 0, duration: 0.85, ease: 'power2.inOut' }, '-=0.12')
+            // 3 — crosshair retracts
+            .to(cross, { opacity: 0, scale: 0.4, duration: 0.3, ease: 'power2.in' }, '-=0.32')
+            // 4 — bubble expands with an elastic wobble
+            .fromTo(bubble, { scaleX: 1, scaleY: 1 },
+                { scaleX: 1.06, scaleY: 0.94, duration: 0.9, ease: 'elastic.out(0.7, 0.25)' }, '-=0.15')
+            // 5 — name + roles rise into the bubble (clipped by the circle mask)
+            .to(nameEl, { y: 0, duration: 0.85, ease: 'expo.out' }, '-=0.78')
+            .to(roles, { y: 0, duration: 0.75, ease: 'expo.out', stagger: 0.08 }, '-=0.62')
+            .to({}, { duration: 0.45 })
+            // 6 — POP
+            .to(lines, { strokeDashoffset: 0, duration: 0.16, ease: 'none' }, 'pop')
+            .to(lines, { strokeDashoffset: -SPOKE_LEN, duration: 0.3, ease: 'power2.out' }, 'pop+=0.13')
+            .to(bubble, { scale: 1.35, opacity: 0, duration: 0.4, ease: 'power2.out' }, 'pop')
+            .to(introText, { y: 260, opacity: 0, duration: 0.45, ease: 'power2.in' }, 'pop+=0.04')
+            // 7 — wipe away, next scene
+            .to(preloader, { yPercent: -100, duration: 0.75, ease: 'expo.inOut' }, 'pop+=0.32');
+
         // Safety net: never let the intro gate content (e.g. rAF paused on a
         // backgrounded tab). Force-reveal after a hard cap regardless of GSAP.
-        setTimeout(finish, 4200);
+        setTimeout(finish, 6500);
     }
 
     /* ============================================================

@@ -95,13 +95,28 @@ section[class*="bg-gradient"], nav[class*="bg-gradient"], footer[class*="bg-grad
     background: var(--fg);
     color: #fafafa;
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
-.preloader-name { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 3rem); opacity: 0; }
-.preloader-count { font-family: var(--sans); font-variant-numeric: tabular-nums; font-size: clamp(3rem, 14vw, 9rem); font-weight: 500; letter-spacing: -0.04em; line-height: 0.9; }
-.preloader-bar { position: absolute; left: 0; bottom: 0; height: 2px; width: 0%; background: var(--accent); }
+.intro-svg { width: 100%; height: 100%; max-width: 1000px; }
+#crossHair line { stroke: #EDEDED; stroke-width: 2; }
+#introName {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 42px;
+    fill: #FAFAFA;
+    letter-spacing: 1px;
+    text-anchor: middle;
+}
+.introRole {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 14px;
+    fill: #8FAFFF;
+    letter-spacing: 3.5px;
+    text-anchor: middle;
+}
 body.loading { overflow: hidden; height: 100svh; }
 body.no-preloader .preloader { display: none; }
 

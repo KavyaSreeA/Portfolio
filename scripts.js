@@ -72,61 +72,66 @@
         if (!preloader || reduceMotion || !hasGSAP) { finish(); return; }
         if (lenis) lenis.stop();
 
-        var CX = 400, CY = 300, R = 170;
-        var bubble = preloader.querySelector('#bubble');
-        var cross = preloader.querySelector('#crossHair');
-        var introText = preloader.querySelector('#introText');
-        var nameEl = preloader.querySelector('#introName');
-        var roles = preloader.querySelectorAll('.introRole');
-        var popWrap = preloader.querySelector('#popLines');
+        var statusEl = preloader.querySelector('.intro-status');
+        var stage = preloader.querySelector('.intro-stage');
+        var panel = preloader.querySelector('.intro-panel');
+        var roleItems = preloader.querySelectorAll('.intro-roles li');
 
-        // Build the radial "pop" burst lines
-        var SPOKES = 10, SPOKE_LEN = 42, lines = [];
-        for (var i = 0; i < SPOKES; i++) {
-            var a = (i / SPOKES) * Math.PI * 2 - Math.PI / 2;
-            var ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            ln.setAttribute('x1', CX + Math.cos(a) * (R + 14));
-            ln.setAttribute('y1', CY + Math.sin(a) * (R + 14));
-            ln.setAttribute('x2', CX + Math.cos(a) * (R + 14 + SPOKE_LEN));
-            ln.setAttribute('y2', CY + Math.sin(a) * (R + 14 + SPOKE_LEN));
-            ln.style.strokeDasharray = SPOKE_LEN;
-            ln.style.strokeDashoffset = SPOKE_LEN;
-            popWrap.appendChild(ln);
-            lines.push(ln);
+        // Split each title into word masks + per-character spans
+        function splitChars(el) {
+            var text = (el.textContent || '').trim();
+            el.textContent = '';
+            var chars = [];
+            text.split(/\s+/).forEach(function (word) {
+                var w = document.createElement('span');
+                w.className = 'intro-word';
+                word.split('').forEach(function (ch) {
+                    var c = document.createElement('span');
+                    c.className = 'intro-char';
+                    c.textContent = ch;
+                    w.appendChild(c);
+                    chars.push(c);
+                });
+                el.appendChild(w);
+            });
+            return chars;
         }
 
-        // Initial states
-        var CIRC = 2 * Math.PI * R;
-        gsap.set(bubble, { strokeDasharray: CIRC, strokeDashoffset: CIRC, svgOrigin: CX + ' ' + CY });
-        gsap.set(cross, { opacity: 0, svgOrigin: CX + ' ' + CY });
-        gsap.set(nameEl, { y: 200 });
-        gsap.set(roles, { y: 200 });
+        var titles = preloader.querySelectorAll('[data-intro-split]');
+        var solidChars = splitChars(titles[0]);
+        var strokeChars = titles[1] ? splitChars(titles[1]) : [];
 
-        gsap.timeline({ onComplete: finish })
-            // 1 — crosshair scans into the centre
-            .fromTo(cross, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' })
-            // 2 — circle draws itself
-            .to(bubble, { strokeDashoffset: 0, duration: 0.85, ease: 'power2.inOut' }, '-=0.12')
-            // 3 — crosshair retracts
-            .to(cross, { opacity: 0, scale: 0.4, duration: 0.3, ease: 'power2.in' }, '-=0.32')
-            // 4 — bubble expands with an elastic wobble
-            .fromTo(bubble, { scaleX: 1, scaleY: 1 },
-                { scaleX: 1.06, scaleY: 0.94, duration: 0.9, ease: 'elastic.out(0.7, 0.25)' }, '-=0.15')
-            // 5 — name + roles rise into the bubble (clipped by the circle mask)
-            .to(nameEl, { y: 0, duration: 0.85, ease: 'expo.out' }, '-=0.78')
-            .to(roles, { y: 0, duration: 0.75, ease: 'expo.out', stagger: 0.08 }, '-=0.62')
-            .to({}, { duration: 0.45 })
-            // 6 — POP
-            .to(lines, { strokeDashoffset: 0, duration: 0.16, ease: 'none' }, 'pop')
-            .to(lines, { strokeDashoffset: -SPOKE_LEN, duration: 0.3, ease: 'power2.out' }, 'pop+=0.13')
-            .to(bubble, { scale: 1.35, opacity: 0, duration: 0.4, ease: 'power2.out' }, 'pop')
-            .to(introText, { y: 260, opacity: 0, duration: 0.45, ease: 'power2.in' }, 'pop+=0.04')
-            // 7 — wipe away, next scene
-            .to(preloader, { yPercent: -100, duration: 0.75, ease: 'expo.inOut' }, 'pop+=0.32');
+        // Initial states
+        gsap.set(preloader, { transformOrigin: 'top' });
+        gsap.set([solidChars, strokeChars], { yPercent: 120, scaleY: -0.5 });
+        gsap.set(roleItems, { y: 26, opacity: 0 });
+
+        var cycle = ['INITIALIZING', 'FULL STACK DEVELOPER', 'AI ENGINEER', 'MACHINE LEARNING', 'LOADING'];
+        var tl = gsap.timeline({ onComplete: finish });
+
+        // 1 — status rapidly cycles, then clears
+        cycle.forEach(function (word, i) {
+            tl.set(statusEl, { textContent: word }, i * 0.12);
+        });
+        tl.to(statusEl, { opacity: 0, duration: 0.3, ease: 'power2.in' }, 0.78)
+
+          // 2 — layered name reveal: solid type, then the outline echo
+          .to(solidChars, { yPercent: 0, scaleY: 1, duration: 1.35, ease: 'expo.inOut', stagger: 0.028 }, 0.55)
+          .to(strokeChars, { yPercent: 0, scaleY: 1, duration: 1.35, ease: 'expo.inOut', stagger: 0.034 }, 0.62)
+
+          // 3 — roles settle in
+          .to(roleItems, { y: 0, opacity: 1, duration: 0.9, ease: 'expo.out', stagger: 0.09 }, 1.7)
+
+          // 4 — colour panel expands upward
+          .to(panel, { scaleY: 2.6, duration: 1.15, ease: 'expo.inOut' }, 2.85)
+          .to(stage, { y: -70, opacity: 0, duration: 0.8, ease: 'power2.in' }, 3.0)
+
+          // 5 — the whole screen collapses away, revealing the hero
+          .to(preloader, { scaleY: 0, duration: 1.05, ease: 'expo.inOut' }, 3.1);
 
         // Safety net: never let the intro gate content (e.g. rAF paused on a
         // backgrounded tab). Force-reveal after a hard cap regardless of GSAP.
-        setTimeout(finish, 6500);
+        setTimeout(finish, 7500);
     }
 
     /* ============================================================

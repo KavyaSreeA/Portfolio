@@ -7,39 +7,32 @@
     <meta name="description" content="Kavya Sree A — Computer Science student specializing in Machine Learning and Full-Stack Development. Hackathon winner and builder of real-world ML solutions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="loading">
-    <!-- Preloader: crosshair scan → circle draws → bubble expands → name → pop -->
+    <!-- Cinematic intro: loading → layered name reveal → panel expands → page reveal -->
     <div class="preloader" aria-hidden="true">
-        <svg class="intro-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <defs>
-                <mask id="introMask">
-                    <circle cx="400" cy="300" r="170" fill="#fff"/>
-                </mask>
-            </defs>
+        <div class="intro-glow"></div>
+        <div class="intro-grid"></div>
 
-            <g id="crossHair">
-                <line x1="368" y1="300" x2="390" y2="300"/>
-                <line x1="410" y1="300" x2="432" y2="300"/>
-                <line x1="400" y1="268" x2="400" y2="290"/>
-                <line x1="400" y1="310" x2="400" y2="332"/>
-                <circle cx="400" cy="300" r="2.5" fill="#EDEDED" stroke="none"/>
-            </g>
+        <div class="intro-stage">
+            <span class="intro-status">INITIALIZING</span>
 
-            <g transform="rotate(-90 400 300)">
-                <circle id="bubble" cx="400" cy="300" r="170" fill="none" stroke="#5783FC" stroke-width="3"/>
-            </g>
+            <div class="intro-title-wrap">
+                <h2 class="intro-title" data-intro-split>KAVYA SREE A</h2>
+                <div class="intro-title intro-title--stroke" data-intro-split>KAVYA SREE A</div>
+            </div>
 
-            <g id="introText" mask="url(#introMask)">
-                <text id="introName" x="400" y="292">KAVYA SREE A</text>
-                <text class="introRole" x="400" y="330">Full Stack Developer</text>
-                <text class="introRole" x="400" y="356">AI &amp; ML Engineer</text>
-            </g>
+            <ul class="intro-roles">
+                <li>Full Stack Developer</li>
+                <li>AI Engineer</li>
+                <li>Machine Learning Enthusiast</li>
+            </ul>
+        </div>
 
-            <g id="popLines" stroke="#EDEDED" stroke-width="2.5" stroke-linecap="round"></g>
-        </svg>
+        <div class="intro-panel"></div>
+        <div class="intro-noise"></div>
     </div>
     <div class="page-transition" aria-hidden="true"></div>
     <div class="cursor-ring" aria-hidden="true"></div>
